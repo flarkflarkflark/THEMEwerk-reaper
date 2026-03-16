@@ -10,7 +10,7 @@
       <metadata>
         <link rel="website">https://github.com/flarkflarkflark/THEMEwerk-reaper</link>
       </metadata>
-      <version name="0.1.0-alpha" author="flarkflarkflark" time="2026-03-16T12:00:00Z">
+      <version name="0.1.0-alpha" author="flarkAUDIO" time="2026-03-16T12:00:00Z">
         <source main="main">https://github.com/flarkflarkflark/THEMEwerk-reaper/raw/master/scripts/THEMEwerk.lua</source>
         <source>https://github.com/flarkflarkflark/THEMEwerk-reaper/raw/master/lib/theme_actions.lua</source>
         <source>https://github.com/flarkflarkflark/THEMEwerk-reaper/raw/master/lib/theme_data.lua</source>

@@ -43,4 +43,4 @@ Import this repository URL into ReaPack:
 MIT License. See [LICENSE](LICENSE) for details.
 
 ---
-By **flarkflarkflark**
+By **flarkAUDIO**

@@ -312,14 +312,14 @@ function M.draw()
   local footer_font_sz = (gfx.w < 400) and math.max(10, font_sz - 2) or font_sz
   
   -- Left: Branding
-  local brand_text = "flarkflarkflark"
+  local brand_text = "flarkAUDIO"
   local bw, _ = gfx.measurestr(brand_text)
   draw_text(pad, footer_y + (footer_h - footer_font_sz)/2, brand_text, COLOR_THEME_ACCENT)
   
   -- Tooltip: Branding
   if gfx.mouse_x >= pad and gfx.mouse_x <= pad + bw and
      gfx.mouse_y >= footer_y and gfx.mouse_y <= footer_y + footer_h then
-    local tt_text = "for REAPER by flarkflarkflark"
+    local tt_text = "for REAPER by flarkAUDIO"
     local ttw, tth = gfx.measurestr(tt_text)
     local ttx, tty = gfx.mouse_x, footer_y - tth - pad
     gfx.set(0, 0, 0, 0.9)
