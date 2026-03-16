@@ -1,0 +1,16 @@
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Lua
+*.lua.swp
+*.swp
+
+# REAPER
+*.ReaperSession.reapeaks
+*.reapindex
+REAPER-project.ini
+
+# IDEs
+.vscode/
+.idea/
