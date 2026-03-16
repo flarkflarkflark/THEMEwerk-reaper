@@ -2,7 +2,7 @@
 -- Main script for THEMEwerk-reaper, a local theme browser.
 -- @description THEMEwerk: A local theme browser
 -- @version 0.1.0-alpha
--- @author flarkAUDIO
+-- @author flarkflarkflark
 -- @about
 --   A local REAPER theme browser for fast, searchable, and keyboard-friendly theme switching.
 --   Turns theme browsing into a live workflow.

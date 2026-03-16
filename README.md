@@ -27,7 +27,7 @@ Instead of digging through menus and submenus, THEMEwerk turns theme browsing in
 
 ### Option 2 — ReaPack
 Import this repository URL into ReaPack:
-`https://github.com/flarkAUDIO/THEMEwerk-reaper/raw/master/index.xml`
+`https://github.com/flarkflarkflark/THEMEwerk-reaper/raw/master/index.xml`
 
 ## Controls
 
@@ -43,4 +43,4 @@ Import this repository URL into ReaPack:
 MIT License. See [LICENSE](LICENSE) for details.
 
 ---
-By **flarkAUDIO**
+By **flarkflarkflark**

@@ -26,12 +26,11 @@ Codeable connects you with top-tier professionals skilled in frameworks and tech
 - Review us on [Cursor marketplace](https://open-vsx.org/extension/GBTI/snapshots-for-ai)
 
 ### Star Our GitHub Repository ⭐
-- Star and watch our [repository](https://github.com/gbti-network/vscode-snapshots-for-ai)
+- Star and watch our [repository](https://github.com/flarkflarkflark/THEMEwerk-reaper)
 
 ### 📡 Stay Connected
 Follow us on your favorite platforms for updates, news, and community discussions:
-- **[Twitter/X](https://twitter.com/gbti_network)**
-- **[GitHub](https://github.com/gbti-network)**
+- **[GitHub](https://github.com/flarkflarkflark)**
 - **[YouTube](https://www.youtube.com/channel/UCh4FjB6r4oWQW-QFiwqv-UA)**
 - **[Dev.to](https://dev.to/gbti)**
 - **[Daily.dev](https://dly.to/zfCriM6JfRF)**

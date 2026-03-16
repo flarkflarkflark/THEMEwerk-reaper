@@ -8,14 +8,14 @@
   <category name="Theme Browser">
     <reascript name="THEMEwerk.lua" vrs="0.1.0-alpha">
       <metadata>
-        <link rel="website">https://github.com/flarkAUDIO/THEMEwerk-reaper</link>
+        <link rel="website">https://github.com/flarkflarkflark/THEMEwerk-reaper</link>
       </metadata>
-      <version name="0.1.0-alpha" author="flarkAUDIO" time="2026-03-16T12:00:00Z">
-        <source main="main">https://github.com/flarkAUDIO/THEMEwerk-reaper/raw/v0.1.0-alpha/scripts/THEMEwerk.lua</source>
-        <source>https://github.com/flarkAUDIO/THEMEwerk-reaper/raw/v0.1.0-alpha/lib/theme_actions.lua</source>
-        <source>https://github.com/flarkAUDIO/THEMEwerk-reaper/raw/v0.1.0-alpha/lib/theme_data.lua</source>
-        <source>https://github.com/flarkAUDIO/THEMEwerk-reaper/raw/v0.1.0-alpha/lib/theme_state.lua</source>
-        <source>https://github.com/flarkAUDIO/THEMEwerk-reaper/raw/v0.1.0-alpha/lib/theme_ui.lua</source>
+      <version name="0.1.0-alpha" author="flarkflarkflark" time="2026-03-16T12:00:00Z">
+        <source main="main">https://github.com/flarkflarkflark/THEMEwerk-reaper/raw/master/scripts/THEMEwerk.lua</source>
+        <source>https://github.com/flarkflarkflark/THEMEwerk-reaper/raw/master/lib/theme_actions.lua</source>
+        <source>https://github.com/flarkflarkflark/THEMEwerk-reaper/raw/master/lib/theme_data.lua</source>
+        <source>https://github.com/flarkflarkflark/THEMEwerk-reaper/raw/master/lib/theme_state.lua</source>
+        <source>https://github.com/flarkflarkflark/THEMEwerk-reaper/raw/master/lib/theme_ui.lua</source>
       </version>
     </reascript>
   </category>

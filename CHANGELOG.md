@@ -11,6 +11,6 @@
 - Dynamic UI scaling (`+`, `-`, `0`).
 - Persistent window geometry and scroll position.
 - Compact metadata display.
-- Branded "flarkAUDIO" footer with contextual help tooltips.
+- Branded "flarkflarkflark" footer with contextual help tooltips.
 - Scrollbar indicator for the theme list.
 - MIT License.
