@@ -61,6 +61,7 @@ function main()
   ui.run()
   
   reaper.defer(function()
+    state.save_state()
     ui.quit()
     reaper.ShowConsoleMsg('THEMEwerk exited.\\n')
   end)

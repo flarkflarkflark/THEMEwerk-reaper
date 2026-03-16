@@ -26,25 +26,36 @@ function M.scan_for_themes(theme_dir)
   end
 
   local themes = {}
-  local i = 0
-  local file = reaper.JS_File_FindFirst(theme_dir .. '/*.ReaperTheme')
+  local theme_exists = {} -- Used as a set to track uniqueness
 
+  -- Scan for .ReaperTheme files
+  local file = reaper.JS_File_FindFirst(theme_dir .. '/*.ReaperTheme')
   while file and #file > 0 do
-    -- Strip the path and extension to get the theme name.
     local theme_name = file:match('([^/\\\\]+)%.ReaperTheme$')
-    if theme_name then
+    if theme_name and not theme_exists[theme_name] then
       table.insert(themes, theme_name)
+      theme_exists[theme_name] = true
     end
     file = reaper.JS_File_FindNext()
   end
   reaper.JS_File_FindClose()
 
-  -- Also scan for unpacked theme directories
-  -- For v0.1 we will stick to ReaperTheme files, but this is where to add directory scanning
+  -- Scan for .ReaperThemeZip files
+  file = reaper.JS_File_FindFirst(theme_dir .. '/*.ReaperThemeZip')
+  while file and #file > 0 do
+    local theme_name = file:match('([^/\\\\]+)%.ReaperThemeZip$')
+    if theme_name and not theme_exists[theme_name] then
+      table.insert(themes, theme_name)
+      theme_exists[theme_name] = true
+    end
+    file = reaper.JS_File_FindNext()
+  end
+  reaper.JS_File_FindClose()
+
   -- TODO: Add scanning for unpacked theme directories.
 
   if #themes == 0 then
-    reaper.ShowConsoleMsg('THEMEwerk: No .ReaperTheme files found in ' .. theme_dir .. '\\n')
+    reaper.ShowConsoleMsg('THEMEwerk: No theme files found in ' .. theme_dir .. '\\n')
     return {} -- Return an empty table, not nil
   end
 
