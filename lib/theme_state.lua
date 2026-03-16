@@ -74,20 +74,22 @@ local function get_current_theme_from_ini()
   
   local last_theme = nil
   for line in f:lines() do
-    -- Look for the lasttheme= line
-    local val = line:match('^lasttheme=(.*)')
+    -- Trim whitespace and check for various theme keys
+    local clean_line = line:gsub('^%s*(.-)%s*$', '%1')
+    
+    -- Matches: lasttheme=..., lasttheme_v6=..., etc. (case insensitive)
+    local val = clean_line:match('^[Ll][Aa][Ss][Tt][Tt][Hh][Ee][Mm][Ee][^=]*=(.*)')
     if val then
-      last_theme = val
-      -- Don't break, REAPER might have multiple sections, we want the last one if applicable
+      last_theme = val:gsub('^%s*(.-)%s*$', '%1') -- trim value
     end
   end
   f:close()
   
-  if last_theme then
+  if last_theme and last_theme ~= '' then
     -- Extract name from path
     last_theme = last_theme:gsub('\\\\', '/')
-    local name = last_theme:match('([^/]+)%.ReaperTheme') or 
-                 last_theme:match('([^/]+)%.ReaperThemeZip') or
+    local name = last_theme:match('([^/]+)%.[Rr][Ee][Aa][Pp][Ee][Rr][Tt][Hh][Ee][Mm][Ee]') or 
+                 last_theme:match('([^/]+)%.[Rr][Ee][Aa][Pp][Ee][Rr][Tt][Hh][Ee][Mm][Ee][Zz][Ii][Pp]') or
                  last_theme:match('([^/]+)$')
     return name
   end
