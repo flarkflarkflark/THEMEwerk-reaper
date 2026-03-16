@@ -1,11 +1,17 @@
 -- scripts/THEMEwerk.lua
 -- Main script for THEMEwerk-reaper, a local theme browser.
 -- @description THEMEwerk: A local theme browser
--- @version 0.1
--- @author Gemini
+-- @version 0.1.0-alpha
+-- @author flarkAUDIO
 -- @about
 --   A local REAPER theme browser for fast, searchable, and keyboard-friendly theme switching.
---   Now dependency-free (uses native REAPER APIs).
+--   Turns theme browsing into a live workflow.
+-- @provides
+--   [main] .
+--   ../lib/theme_actions.lua
+--   ../lib/theme_data.lua
+--   ../lib/theme_state.lua
+--   ../lib/theme_ui.lua
 
 -- Set up paths for required modules
 local info = debug.getinfo(1,'S')

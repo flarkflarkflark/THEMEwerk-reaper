@@ -4,38 +4,28 @@
 local M = {}
 local data = require('theme_data')
 
--- Applies a REAPER theme using native API.
--- @param theme_name (string) The name of the theme to apply.
+-- Applies a REAPER theme.
+-- @param theme_path_or_name (string) Full path to theme file or its name.
 -- @return (boolean) true on success, false on failure.
-function M.apply_theme(theme_name)
-  if not theme_name or #theme_name == 0 then return false end
+function M.apply_theme(theme_path_or_name)
+  if not theme_path_or_name or #theme_path_or_name == 0 then return false end
+
+  -- If it's already a full path to an existing file, apply it
+  if data.file_exists(theme_path_or_name) then
+    reaper.OpenColorThemeFile(theme_path_or_name)
+    return true
+  end
 
   local theme_dir = reaper.GetResourcePath():gsub('\\\\', '/') .. '/ColorThemes/'
   
-  -- Extensions to try
+  -- Fallback for name-only calls (Recents/Favorites)
   local exts = { '.ReaperTheme', '.ReaperThemeZip' }
-  local final_path = nil
-
   for _, ext in ipairs(exts) do
-    local path = theme_dir .. theme_name .. ext
+    local path = theme_dir .. theme_path_or_name .. ext
     if data.file_exists(path) then
-      final_path = path
-      break
+      reaper.OpenColorThemeFile(path)
+      return true
     end
-  end
-
-  if not final_path then
-    -- Check if it's an unpacked directory
-    local dir_path = theme_dir .. theme_name
-    if data.file_exists(dir_path) then
-       final_path = dir_path
-    end
-  end
-
-  if final_path then
-    -- Native REAPER API to load a theme
-    reaper.OpenColorThemeFile(final_path)
-    return true
   end
 
   return false
