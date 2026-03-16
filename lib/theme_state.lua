@@ -12,7 +12,8 @@ local MAX_RECENTS = 10
 local state = {
   themes = {},          -- Full list of available theme names
   current_theme = nil,  -- The name of the currently applied theme
-  previous_theme = nil, -- The name of the theme active before the script was run
+  initial_theme = nil,  -- The name of the theme active before the script was run
+  previous_theme = nil, -- The name of the theme active before the last switch
   favorites = {},       -- List of favorite theme names
   recents = {},         -- List of recently used theme names
 }
@@ -52,22 +53,21 @@ function M.load_state()
 end
 
 function M.add_to_recents(theme_name)
-  -- Remove if already exists
+  if not theme_name then return end
   for i, v in ipairs(state.recents) do
     if v == theme_name then
       table.remove(state.recents, i)
       break
     end
   end
-  -- Add to the front
   table.insert(state.recents, 1, theme_name)
-  -- Trim the list
   if #state.recents > MAX_RECENTS then
     state.recents[MAX_RECENTS + 1] = nil
   end
 end
 
 function M.toggle_favorite(theme_name)
+  if not theme_name then return end
   local found_idx = -1
   for i, v in ipairs(state.favorites) do
     if v == theme_name then
@@ -75,7 +75,6 @@ function M.toggle_favorite(theme_name)
       break
     end
   end
-
   if found_idx > 0 then
     table.remove(state.favorites, found_idx)
   else
@@ -88,19 +87,18 @@ end
 function M.init(themes)
   M.load_state()
   state.themes = themes or {}
-  -- Try to get the current theme.
+  
   local current_theme_path = reaper.GetLastLoadedThemeFile()
   if current_theme_path and #current_theme_path > 0 then
-    local theme_name = current_theme_path:match('([^/\\\\]+)%.ReaperTheme[^Zip]?$')
-    if not theme_name then
-       theme_name = current_theme_path:match('([^/\\\\]+)%.ReaperThemeZip$')
-    end
-    if not theme_name then
-      -- It might be an unpacked theme, try to get the directory name
-      theme_name = current_theme_path:match('([^/\\\\]+)[/\\\\]?$')
-    end
+    -- Normalize path
+    current_theme_path = current_theme_path:gsub('\\\\', '/')
+    -- Extract name (works for .ReaperTheme and .ReaperThemeZip)
+    local theme_name = current_theme_path:match('([^/]+)%.ReaperTheme') or 
+                       current_theme_path:match('([^/]+)%.ReaperThemeZip') or
+                       current_theme_path:match('([^/]+)$')
+    
     state.current_theme = theme_name
-    state.previous_theme = theme_name -- Store the initial theme
+    state.initial_theme = theme_name
   else
     reaper.ShowConsoleMsg('THEMEwerk: Could not determine the currently active theme.\\n')
   end
@@ -114,6 +112,7 @@ end
 -- Sets the current theme.
 -- @param theme_name (string) The name of the theme to set as current.
 function M.set_current_theme(theme_name)
+  if not theme_name then return end
   if state.current_theme ~= theme_name then
     state.previous_theme = state.current_theme
     state.current_theme = theme_name
@@ -121,11 +120,15 @@ function M.set_current_theme(theme_name)
   end
 end
 
--- Reverts to the previous theme.
-function M.revert_to_previous()
-  if state.previous_theme then
-    state.current_theme = state.previous_theme
+-- Reverts to the initial theme (active when script started).
+function M.revert_to_initial()
+  if state.initial_theme then
+    state.previous_theme = state.current_theme
+    state.current_theme = state.initial_theme
+    return state.initial_theme
   end
+  return nil
 end
 
 return M
+

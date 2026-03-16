@@ -5,20 +5,13 @@
 -- @author Gemini
 -- @about
 --   A local REAPER theme browser for fast, searchable, and keyboard-friendly theme switching.
---   Requires the S&M extension (https://www.sws-extension.org/)
---   and the js_ReaScriptAPI extension.
+--   Now dependency-free (uses native REAPER APIs).
 
 -- Set up paths for required modules
 local info = debug.getinfo(1,'S')
 local script_path = info.source:match[[^@?(.*[\/])[^\\/]*$]]
-package.path = package.path .. ';' .. script_path .. '../lib/?.lua'
-
--- Defer function to run when the script ends
-function reaper.defer(func)
-  local success, err = pcall(func)
-  if not success then
-    reaper.ShowConsoleMsg('THEMEwerk defer error: ' .. tostring(err) .. '\\n')
-  end
+if script_path then
+  package.path = package.path .. ';' .. script_path .. '../lib/?.lua'
 end
 
 -- Load libraries
@@ -34,37 +27,27 @@ if not ok then reaper.ShowMessageBox('Failed to load theme_ui.lua.\\n' .. tostri
 
 -- Main function
 function main()
-  -- Check for dependencies
-  if not reaper.JS_File_Exists then
-    reaper.ShowMessageBox('This script requires the js_ReaScriptAPI extension.\\nPlease install it via ReaPack.', 'Dependency Not Found', 0)
-    return
-  end
-  local sm_cmd = reaper.NamedCommandLookup('_S&M_LOAD_THEME_CLIP')
-  if not (sm_cmd and sm_cmd > 0) then
-      reaper.ShowMessageBox(
-        'This script requires the S&M extension (v2.8 or later) to apply themes.\\n' ..
-        'Please install or update it from https://www.sws-extension.org/',
-        'S&M Extension Not Found or Outdated', 0
-      )
-      return
-  end
-
   local theme_dir = data.get_theme_dir()
-  if not theme_dir or not reaper.JS_File_Exists(theme_dir) then
-    reaper.ShowMessageBox('Could not find the REAPER ColorThemes directory.', 'Error', 0)
+  if not theme_dir then
+    reaper.ShowMessageBox('Could not determine the REAPER resource path.', 'Error', 0)
     return
   end
 
   local themes = data.scan_for_themes(theme_dir)
+  if not themes or #themes == 0 then
+    reaper.ShowMessageBox('No themes found in ColorThemes directory.', 'Information', 0)
+  end
+  
   state.init(themes)
   
+  -- Start UI
   ui.run()
-  
-  reaper.defer(function()
-    state.save_state()
-    ui.quit()
-    reaper.ShowConsoleMsg('THEMEwerk exited.\\n')
-  end)
 end
 
+reaper.atexit(function()
+  state.save_state()
+end)
+
 main()
+
+
