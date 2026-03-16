@@ -66,20 +66,32 @@ function M.add_to_recents(theme_name)
   end
 end
 
-function M.toggle_favorite(theme_name)
-  if not theme_name then return end
-  local found_idx = -1
-  for i, v in ipairs(state.favorites) do
-    if v == theme_name then
-      found_idx = i
-      break
+-- Safely detects the current theme by reading reaper.ini
+local function get_current_theme_from_ini()
+  local ini_path = reaper.get_ini_file()
+  local f = io.open(ini_path, 'r')
+  if not f then return nil end
+  
+  local last_theme = nil
+  for line in f:lines() do
+    -- Look for the lasttheme= line
+    local val = line:match('^lasttheme=(.*)')
+    if val then
+      last_theme = val
+      -- Don't break, REAPER might have multiple sections, we want the last one if applicable
     end
   end
-  if found_idx > 0 then
-    table.remove(state.favorites, found_idx)
-  else
-    table.insert(state.favorites, theme_name)
+  f:close()
+  
+  if last_theme then
+    -- Extract name from path
+    last_theme = last_theme:gsub('\\\\', '/')
+    local name = last_theme:match('([^/]+)%.ReaperTheme') or 
+                 last_theme:match('([^/]+)%.ReaperThemeZip') or
+                 last_theme:match('([^/]+)$')
+    return name
   end
+  return nil
 end
 
 -- Initializes the state.
@@ -88,19 +100,12 @@ function M.init(themes)
   M.load_state()
   state.themes = themes or {}
   
-  local current_theme_path = reaper.GetLastLoadedThemeFile()
-  if current_theme_path and #current_theme_path > 0 then
-    -- Normalize path
-    current_theme_path = current_theme_path:gsub('\\\\', '/')
-    -- Extract name (works for .ReaperTheme and .ReaperThemeZip)
-    local theme_name = current_theme_path:match('([^/]+)%.ReaperTheme') or 
-                       current_theme_path:match('([^/]+)%.ReaperThemeZip') or
-                       current_theme_path:match('([^/]+)$')
-    
+  local theme_name = get_current_theme_from_ini()
+  if theme_name then
     state.current_theme = theme_name
     state.initial_theme = theme_name
   else
-    reaper.ShowConsoleMsg('THEMEwerk: Could not determine the currently active theme.\\n')
+    reaper.ShowConsoleMsg('THEMEwerk: Could not determine the currently active theme from reaper.ini\\n')
   end
 end
 
@@ -131,4 +136,5 @@ function M.revert_to_initial()
 end
 
 return M
+
 
