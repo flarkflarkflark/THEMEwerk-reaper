@@ -4,7 +4,10 @@
 
 Instead of digging through menus and submenus, THEMEwerk turns theme browsing into a live workflow. Explore your local `ColorThemes` directory with immediate visual feedback.
 
-![Screenshot Placeholder](https://via.placeholder.com/800x450.png?text=THEMEwerk+Screenshot)
+<p align="center">
+  <img src="docs/Screenshot.png" alt="THEMEwerk screenshot" width="50%"><br>
+  <em>Current alpha UI with live-apply theme list.</em>
+</p>
 
 ## Features
 
@@ -27,7 +30,7 @@ Instead of digging through menus and submenus, THEMEwerk turns theme browsing in
 
 ### Option 2 — ReaPack
 Import this repository URL into ReaPack:
-`https://github.com/flarkflarkflark/THEMEwerk-reaper/raw/master/index.xml`
+`https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/index.xml`
 
 ## Controls
 
