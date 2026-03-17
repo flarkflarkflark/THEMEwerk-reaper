@@ -12,7 +12,7 @@ Follow these steps to test the local theme browser prototype in REAPER.
 1.  Clone or download this repository.
 2.  In REAPER, open the Action List (`?` key).
 3.  Click `New Action...` -> `Load ReaScript...`.
-4.  Navigate to the `scripts/` directory inside this repository and select `THEMEwerk.lua`.
+4.  Select `THEMEwerk.lua` from the root directory of this repository.
 5.  The script is now installed.
 
 ## Running the Script

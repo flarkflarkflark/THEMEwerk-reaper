@@ -1,22 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<reapack name="THEMEwerk-reaper" type="script" desc="THEMEwerk: A local theme browser">
-  <metadata>
-    <description>
-      <![CDATA[THEMEwerk is a local REAPER theme browser for fast, searchable, and keyboard-friendly theme switching.]]>
-    </description>
-  </metadata>
+<index version="1" name="THEMEwerk-reaper">
   <category name="Theme Browser">
-    <reascript name="THEMEwerk.lua" vrs="0.1.0-alpha">
+    <reapack name="THEMEwerk.lua" type="script" vrs="0.1.0-beta">
       <metadata>
+        <description><![CDATA[THEMEwerk: A local theme browser]]></description>
         <link rel="website">https://github.com/flarkflarkflark/THEMEwerk-reaper</link>
       </metadata>
-      <version name="0.1.0-alpha" author="flarkAUDIO" time="2026-03-16T12:00:00Z">
-        <source main="main">https://github.com/flarkflarkflark/THEMEwerk-reaper/raw/master/scripts/THEMEwerk.lua</source>
-        <source>https://github.com/flarkflarkflark/THEMEwerk-reaper/raw/master/lib/theme_actions.lua</source>
-        <source>https://github.com/flarkflarkflark/THEMEwerk-reaper/raw/master/lib/theme_data.lua</source>
-        <source>https://github.com/flarkflarkflark/THEMEwerk-reaper/raw/master/lib/theme_state.lua</source>
-        <source>https://github.com/flarkflarkflark/THEMEwerk-reaper/raw/master/lib/theme_ui.lua</source>
+      <version name="0.1.0-beta" author="flarkAUDIO" time="2026-03-17T00:35:00Z">
+        <source main="main">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/THEMEwerk.lua</source>
+        <source file="lib/theme_actions.lua">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/lib/theme_actions.lua</source>
+        <source file="lib/theme_data.lua">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/lib/theme_data.lua</source>
+        <source file="lib/theme_state.lua">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/lib/theme_state.lua</source>
+        <source file="lib/theme_ui.lua">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/lib/theme_ui.lua</source>
       </version>
-    </reascript>
+    </reapack>
   </category>
-</reapack>
+</index>

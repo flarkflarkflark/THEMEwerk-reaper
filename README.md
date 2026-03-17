@@ -22,8 +22,8 @@ Instead of digging through menus and submenus, THEMEwerk turns theme browsing in
 
 ### Option 1 — Manual
 1. Download the latest release.
-2. Copy `scripts/` and `lib/` folders into your REAPER `Scripts` directory.
-3. Add `scripts/THEMEwerk.lua` via the REAPER Action List.
+2. Copy `THEMEwerk.lua` and the `lib/` folder into your REAPER `Scripts` directory.
+3. Add `THEMEwerk.lua` via the REAPER Action List.
 
 ### Option 2 — ReaPack
 Import this repository URL into ReaPack:

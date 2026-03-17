@@ -1,4 +1,5 @@
 -- lib/theme_data.lua
+-- @noindex
 -- Handles discovery and management of REAPER themes using native APIs.
 
 local M = {}

@@ -1,4 +1,5 @@
 -- lib/theme_actions.lua
+-- @noindex
 -- Contains functions that perform actions using native REAPER APIs.
 
 local M = {}

@@ -1,4 +1,5 @@
 -- lib/theme_state.lua
+-- @noindex
 -- Manages the state of the theme browser, including persistence.
 
 local M = {}

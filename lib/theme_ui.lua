@@ -1,4 +1,5 @@
 -- lib/theme_ui.lua
+-- @noindex
 -- Handles the user interface for the theme browser.
 
 local M = {}
