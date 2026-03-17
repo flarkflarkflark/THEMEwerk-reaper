@@ -30,7 +30,10 @@ Instead of digging through menus and submenus, THEMEwerk turns theme browsing in
 
 ### Option 2 — ReaPack
 Import this repository URL into ReaPack:
-`https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/index.xml`
+
+```
+https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/index.xml
+```
 
 ## Controls
 
