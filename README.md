@@ -1,8 +1,6 @@
 # THEMEwerk
 
-**THEMEwerk** is a fast, live theme browser for REAPER.
-
-Instead of digging through menus and submenus, THEMEwerk turns theme browsing into a live workflow. Explore your local `ColorThemes` directory with immediate visual feedback.
+THEMEwerk is a live local theme browser for REAPER. Click a theme, see it instantly, and browse your ColorThemes folder without friction, instead of digging through menus and submenus...
 
 <p align="center">
   <img src="docs/Screenshot.png" alt="THEMEwerk screenshot" width="50%"><br>
