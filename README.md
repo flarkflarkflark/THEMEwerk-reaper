@@ -1,6 +1,6 @@
 # THEMEwerk
 
-THEMEwerk is a live local theme browser for REAPER. Click a theme, see it instantly, and browse your ColorThemes folder without friction, instead of digging through menus and submenus...
+THEMEwerk is a live local theme browser for REAPER. Click a theme, see it instantly, and browse your ColorThemes folder without the usual menu diving.
 
 <p align="center">
   <img src="docs/Screenshot.png" alt="THEMEwerk screenshot" width="50%"><br>
@@ -9,7 +9,7 @@ THEMEwerk is a live local theme browser for REAPER. Click a theme, see it instan
 
 ## Features
 
-- **Live-Apply**: Themes are applied immediately as you click or navigate via keyboard.
+- **Instant Apply**: Themes are applied immediately as you click or navigate via keyboard.
 - **Directory Sync**: Automatically detects new or removed themes while open.
 - **Status Tracking**:
   - **START**: The theme active when you launched THEMEwerk.
@@ -17,7 +17,7 @@ THEMEwerk is a live local theme browser for REAPER. Click a theme, see it instan
   - **NEW**: Themes added during the session.
   - **MISSING**: Previously known themes no longer found on disk.
 - **UI Scaling**: Fully continuous scaling system for any display size.
-- **Zero Dependencies**: Pure Lua, uses only native REAPER APIs.
+- **Zero Dependencies**: Pure Lua, using only native REAPER APIs.
 
 ## Installation
 
@@ -27,11 +27,11 @@ THEMEwerk is a live local theme browser for REAPER. Click a theme, see it instan
 3. Add `THEMEwerk.lua` via the REAPER Action List.
 
 ### Option 2 — ReaPack
-Import this repository URL into ReaPack:
-
-```
-https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/index.xml
-```
+1. Open REAPER.
+2. Go to `Extensions -> ReaPack -> Import repositories...`
+3. Paste this URL: `https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/index.xml`
+4. Synchronize packages.
+5. Install `THEMEwerk`.
 
 ## Controls
 
@@ -40,11 +40,12 @@ https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/index.
 - **Home / End**: Go to the first or last theme.
 - **R**: Revert to the session-start theme.
 - **Mouse wheel**: Scroll list.
-- **+ / - / 0**: UI Scale up / down / reset.
+- **+ / - / 0**: UI scale up / down / reset.
 
 ## License
 
 MIT License. See [LICENSE](LICENSE) for details.
 
 ---
-By **flarkAUDIO**
+
+Created by **flarkAUDIO**
