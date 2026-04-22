@@ -1,5 +1,5 @@
 -- @description THEMEwerk: A local theme browser
--- @version 0.1.0-beta
+-- @version 0.1.1
 -- @author flarkAUDIO
 -- @category Theme Browser
 -- @about

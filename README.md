@@ -1,10 +1,10 @@
-# THEMEwerk
+﻿# THEMEwerk
 
 THEMEwerk is a live local theme browser for REAPER. Click a theme, see it instantly, and browse your ColorThemes folder without the usual menu diving.
 
 <p align="center">
   <img src="docs/Screenshot.png" alt="THEMEwerk screenshot" width="50%"><br>
-  <em>Current alpha UI with live-apply theme list.</em>
+  <em>Current GFX UI with live-apply theme list.</em>
 </p>
 
 ## Features
@@ -21,12 +21,12 @@ THEMEwerk is a live local theme browser for REAPER. Click a theme, see it instan
 
 ## Installation
 
-### Option 1 — Manual
+### Option 1 - Manual
 1. Download the latest release.
 2. Copy `THEMEwerk.lua` and the `lib/` folder into your REAPER `Scripts` directory.
 3. Add `THEMEwerk.lua` via the REAPER Action List.
 
-### Option 2 — ReaPack
+### Option 2 - ReaPack
 1. Open REAPER.
 2. Go to `Extensions -> ReaPack -> Import repositories...`
 3. Paste this URL: `https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/index.xml`
