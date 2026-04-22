@@ -12,6 +12,7 @@ local WIN_X_KEY = 'win_x'
 local WIN_Y_KEY = 'win_y'
 local WIN_W_KEY = 'win_w'
 local WIN_H_KEY = 'win_h'
+local WIN_DOCKED_KEY = 'win_docked'
 local MAX_RECENTS = 10
 
 -- Holds the current state of the application
@@ -30,6 +31,7 @@ local state = {
   win_y = -1,           -- Window Y position
   win_w = 400,          -- Window width
   win_h = 600,          -- Window height
+  win_docked = 0,       -- Dock state (0 = floating, 1+ = docked)
 }
 
 local function table_to_string(tbl)
@@ -62,6 +64,60 @@ function M.save_state()
   reaper.SetExtState(EXT_STATE_SECTION, WIN_Y_KEY, tostring(state.win_y), true)
   reaper.SetExtState(EXT_STATE_SECTION, WIN_W_KEY, tostring(state.win_w), true)
   reaper.SetExtState(EXT_STATE_SECTION, WIN_H_KEY, tostring(state.win_h), true)
+  reaper.SetExtState(EXT_STATE_SECTION, WIN_DOCKED_KEY, tostring(state.win_docked or 0), true)
+end
+
+local function get_screen_rect()
+  if type(reaper.my_getViewport) == 'function' then
+    local l, t, r, b = 0, 0, 0, 0
+    local ok
+    ok, l, t, r, b = pcall(reaper.my_getViewport, l, t, r, b, l, t, r, b, true)
+    if not ok then
+      ok, l, t, r, b = pcall(reaper.my_getViewport, 0, 0, 0, 0, 1)
+    end
+    l, t, r, b = tonumber(l), tonumber(t), tonumber(r), tonumber(b)
+    if l and t and r and b then
+      if r > l and b > t then
+        return l, t, r, b
+      end
+      -- Some builds may return x, y, w, h instead of left, top, right, bottom.
+      if r > 0 and b > 0 then
+        return l, t, l + r, t + b
+      end
+    end
+  end
+  -- Conservative fallback bounds if viewport API is unavailable.
+  return 0, 0, 3840, 2160
+end
+
+local function validate_window_geometry(x, y, w, h)
+  local min_w, min_h = 300, 250
+  w = math.max(min_w, math.floor(tonumber(w) or 400))
+  h = math.max(min_h, math.floor(tonumber(h) or 600))
+  x = tonumber(x) or -1
+  y = tonumber(y) or -1
+
+  -- Center request remains valid.
+  if x < 0 or y < 0 then
+    return -1, -1, w, h
+  end
+
+  local left, top, right, bottom = get_screen_rect()
+  local min_visible = 40
+
+  -- If almost entirely off-screen (e.g. unplugged second monitor), recenter.
+  if (x + min_visible) > right or (y + min_visible) > bottom or
+     (x + w - min_visible) < left or (y + h - min_visible) < top then
+    return -1, -1, w, h
+  end
+
+  -- Clamp within visible work area.
+  local max_x = math.max(left, right - w)
+  local max_y = math.max(top, bottom - h)
+  x = math.min(math.max(x, left), max_x)
+  y = math.min(math.max(y, top), max_y)
+
+  return x, y, w, h
 end
 
 function M.load_state()
@@ -72,14 +128,14 @@ function M.load_state()
   local win_y_str = reaper.GetExtState(EXT_STATE_SECTION, WIN_Y_KEY)
   local win_w_str = reaper.GetExtState(EXT_STATE_SECTION, WIN_W_KEY)
   local win_h_str = reaper.GetExtState(EXT_STATE_SECTION, WIN_H_KEY)
+  local win_docked_str = reaper.GetExtState(EXT_STATE_SECTION, WIN_DOCKED_KEY)
   
   state.recents = string_to_table(recents_str)
   state.favorites = string_to_table(favorites_str)
   state.ui_scale = tonumber(ui_scale_str) or 1.0
-  state.win_x = tonumber(win_x_str) or -1
-  state.win_y = tonumber(win_y_str) or -1
-  state.win_w = tonumber(win_w_str) or 400
-  state.win_h = tonumber(win_h_str) or 600
+  state.win_x, state.win_y, state.win_w, state.win_h =
+    validate_window_geometry(win_x_str, win_y_str, win_w_str, win_h_str)
+  state.win_docked = math.max(0, math.floor(tonumber(win_docked_str) or 0))
 end
 
 function M.set_ui_scale(scale)
@@ -130,11 +186,17 @@ function M.sync_themes(new_themes)
   state.themes = new_themes
 end
 
-function M.set_window_geometry(x, y, w, h)
-  state.win_x = x or -1
-  state.win_y = y or -1
-  state.win_w = math.max(300, w or 400)
-  state.win_h = math.max(200, h or 600)
+function M.set_window_geometry(x, y, w, h, docked)
+  state.win_x, state.win_y, state.win_w, state.win_h =
+    validate_window_geometry(x, y, w, h)
+  if docked ~= nil then
+    state.win_docked = math.max(0, math.floor(tonumber(docked) or 0))
+  end
+end
+
+function M.get_window_geometry()
+  local x, y, w, h = validate_window_geometry(state.win_x, state.win_y, state.win_w, state.win_h)
+  return x, y, w, h, state.win_docked or 0
 end
 
 function M.add_to_recents(theme_name)
@@ -245,5 +307,3 @@ function M.revert_to_initial()
 end
 
 return M
-
-

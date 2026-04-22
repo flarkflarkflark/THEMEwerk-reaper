@@ -44,6 +44,26 @@ local COLOR_SELECTED_BG = {0.3, 0.3, 0.3, 1}
 local COLOR_SEARCH_BG = {0.25, 0.25, 0.25, 1}
 local COLOR_PANEL_BG = {0.1, 0.1, 0.1, 1}
 
+local function read_gfx_window_geometry()
+  local x, y, w, h, docked
+  local ok, d, gx, gy, gw, gh = pcall(gfx.dock, -1, 0, 0, 0, 0)
+  if ok and type(gw) == 'number' and type(gh) == 'number' and gw > 0 and gh > 0 then
+    docked = d or 0
+    x, y, w, h = gx, gy, gw, gh
+  else
+    local s = state.get_state()
+    docked = s.win_docked or 0
+    x, y, w, h = s.win_x, s.win_y, gfx.w, gfx.h
+  end
+  return x, y, w, h, docked
+end
+
+local function persist_window_geometry()
+  local x, y, w, h, docked = read_gfx_window_geometry()
+  state.set_window_geometry(x, y, w, h, docked)
+  state.save_state()
+end
+
 -- Helper to apply selected theme immediately
 local function apply_selected()
   local theme = filtered_themes[selected_idx]
@@ -468,36 +488,30 @@ end
 
 function M.run()
   state.load_state()
-  local s = state.get_state()
   M.filter_themes()
   
-  -- Window Geometry Validation
-  local x, y = s.win_x, s.win_y
-  local w, h = math.max(MIN_WIN_W, s.win_w), math.max(MIN_WIN_H, s.win_h)
-  
-  -- If off-screen or uninitialized, center it
-  if x < 0 or y < 0 then
-    x, y = -1, -1
-  end
-  
-  gfx.init("THEMEwerk", w, h, 0, x, y)
+  local x, y, w, h, docked = state.get_window_geometry()
+  w, h = math.max(MIN_WIN_W, w), math.max(MIN_WIN_H, h)
+  if x < 0 or y < 0 then x, y = -1, -1 end
+  gfx.init("THEMEwerk", w, h, docked or 0, x, y)
   update_fonts()
+  local last_geom_sync_time = 0
   
   local function loop()
-    -- Capture window geometry changes
-    -- Standard REAPER gfx doesn't dynamically update gfx.x/y if moved by user,
-    -- but we can capture gfx.w/h. If we can't get X/Y here, we at least keep w/h current.
-    local cur_w, cur_h = gfx.w, gfx.h
-    if cur_w ~= w or cur_h ~= h then
-      -- Standard gfx doesn't expose window coordinates after init easily.
-      -- Position persistence relies on the last known good init coordinates or future extensions.
-      state.set_window_geometry(x, y, cur_w, cur_h)
-      w, h = cur_w, cur_h
+    local now = reaper.time_precise()
+    if now - last_geom_sync_time > 0.5 then
+      local gx, gy, gw, gh, gd = read_gfx_window_geometry()
+      if gx ~= x or gy ~= y or gw ~= w or gh ~= h or gd ~= docked then
+        state.set_window_geometry(gx, gy, gw, gh, gd)
+        x, y, w, h, docked = gx, gy, gw, gh, gd
+      end
+      last_geom_sync_time = now
     end
 
     if M.draw() then
       reaper.defer(loop)
     else
+      persist_window_geometry()
       gfx.quit()
     end
   end
@@ -506,9 +520,11 @@ function M.run()
 end
 
 function M.quit()
+  persist_window_geometry()
   gfx.quit()
 end
 
 return M
+
 
 
