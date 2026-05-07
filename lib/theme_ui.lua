@@ -7,7 +7,29 @@ local M = {}
 local state = require('theme_state')
 local actions = require('theme_actions')
 
-local app_title = 'THEMEwerk-reaper v0.1'
+local function detect_script_version()
+  local src = debug.getinfo(1, 'S').source or ''
+  local this_file = src:match('^@(.+)$')
+  if not this_file then return nil end
+
+  local sep = package.config:sub(1, 1)
+  local lib_dir = this_file:match('^(.*' .. sep .. ')')
+  if not lib_dir then return nil end
+  local script_path = lib_dir .. '..' .. sep .. 'THEMEwerk.lua'
+
+  local f = io.open(script_path, 'r')
+  if not f then return nil end
+  local chunk = f:read('*a') or ''
+  f:close()
+
+  return chunk:match('%-%-%s*@version%s+([%w%._%-]+)')
+end
+
+local app_title = 'THEMEwerk-reaper'
+local detected_version = detect_script_version()
+if detected_version then
+  app_title = app_title .. ' v' .. detected_version
+end
 
 -- Base metrics (unscaled)
 local BASE_FONT_SIZE = 14
