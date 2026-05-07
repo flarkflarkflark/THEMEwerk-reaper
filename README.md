@@ -1,6 +1,6 @@
 <h1>
-  <img src="assets/toolbar_icons/masters/themewerk_main.png" alt="THEMEwerk logo" width="64" style="vertical-align: middle; margin-right: 12px;">
   THEMEwerk
+  <img src="assets/toolbar_icons/masters/themewerk_main.png" alt="THEMEwerk logo" width="64" style="vertical-align: middle; margin-left: 12px;">
 </h1>
 
 THEMEwerk is a live local theme browser for REAPER. Click a theme, see it instantly, and browse your ColorThemes folder without the usual menu diving.
