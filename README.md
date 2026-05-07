@@ -24,17 +24,25 @@ THEMEwerk is a live local theme browser for REAPER. Click a theme, see it instan
 
 ## Installation
 
-### Option 1 - Manual
-1. Download the latest release.
-2. Copy `THEMEwerk.lua` and the `lib/` folder into your REAPER `Scripts` directory.
-3. Add `THEMEwerk.lua` via the REAPER Action List.
-
-### Option 2 - ReaPack
+### Option 1 - ReaPack recommended
 1. Open REAPER.
 2. Go to `Extensions -> ReaPack -> Import repositories...`
 3. Paste this URL: `https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/index.xml`
 4. Synchronize packages.
 5. Install `THEMEwerk`.
+
+ReaPack installs the script, helper actions, library files, and toolbar icon assets.
+
+### Option 2 - Manual
+1. Download the latest release or clone this repository.
+2. Copy the full THEMEwerk package into your REAPER `Scripts` directory, for example:
+   - `THEMEwerk.lua`
+   - `THEMEwerk_Install_Toolbar_Icons.lua`
+   - `THEMEwerk_Uninstall_Toolbar_Icons.lua`
+   - `lib/`
+   - `assets/`
+3. Add `THEMEwerk.lua` via the REAPER Action List.
+4. Optional: add `THEMEwerk_Install_Toolbar_Icons.lua` via the Action List and run `THEMEwerk: Install Toolbar Icons` to copy the toolbar strips into REAPER's toolbar icon folder.
 
 ## Controls
 
@@ -46,6 +54,9 @@ THEMEwerk is a live local theme browser for REAPER. Click a theme, see it instan
 - **+ / - / 0**: UI scale up / down / reset.
 
 ## Toolbar Icon (THEMEwerk)
+
+Current release: `v0.1.7`  
+The `v0.1.7` release includes the refreshed big-T/theme-tile toolbar icon family.
 
 The repo includes a custom toolbar icon pack in multiple sizes:
 
