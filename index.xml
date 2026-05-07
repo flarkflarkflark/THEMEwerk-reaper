@@ -14,9 +14,13 @@
         <source main="main">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/THEMEwerk.lua</source>
         <source file="assets/toolbar_icons/THEMEwerk_toolbar.png">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/assets/toolbar_icons/THEMEwerk_toolbar.png</source>
         <source file="assets/toolbar_icons/masters/themewerk_main.png">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/assets/toolbar_icons/masters/themewerk_main.png</source>
+        <source file="assets/toolbar_icons/single/themewerk_main_24x24.png">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/assets/toolbar_icons/single/themewerk_main_24x24.png</source>
         <source file="assets/toolbar_icons/single/themewerk_main_30x30.png">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/assets/toolbar_icons/single/themewerk_main_30x30.png</source>
+        <source file="assets/toolbar_icons/single/themewerk_main_36x36.png">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/assets/toolbar_icons/single/themewerk_main_36x36.png</source>
         <source file="assets/toolbar_icons/single/themewerk_main_45x45.png">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/assets/toolbar_icons/single/themewerk_main_45x45.png</source>
+        <source file="assets/toolbar_icons/single/themewerk_main_48x48.png">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/assets/toolbar_icons/single/themewerk_main_48x48.png</source>
         <source file="assets/toolbar_icons/single/themewerk_main_60x60.png">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/assets/toolbar_icons/single/themewerk_main_60x60.png</source>
+        <source file="assets/toolbar_icons/single/themewerk_main_64x64.png">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/assets/toolbar_icons/single/themewerk_main_64x64.png</source>
         <source file="assets/toolbar_icons/strips_90x30/themewerk_main_90x30.png">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/assets/toolbar_icons/strips_90x30/themewerk_main_90x30.png</source>
         <source file="assets/toolbar_icons/strips_135x45/themewerk_main_135x45.png">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/assets/toolbar_icons/strips_135x45/themewerk_main_135x45.png</source>
         <source file="assets/toolbar_icons/strips_180x60/themewerk_main_180x60.png">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/assets/toolbar_icons/strips_180x60/themewerk_main_180x60.png</source>

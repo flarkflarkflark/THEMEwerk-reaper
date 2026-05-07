@@ -52,9 +52,13 @@ The repo includes a custom toolbar icon pack in multiple sizes:
 - `assets/toolbar_icons/strips_90x30/themewerk_main_90x30.png`
 - `assets/toolbar_icons/strips_135x45/themewerk_main_135x45.png`
 - `assets/toolbar_icons/strips_180x60/themewerk_main_180x60.png`
+- `assets/toolbar_icons/single/themewerk_main_24x24.png`
 - `assets/toolbar_icons/single/themewerk_main_30x30.png`
+- `assets/toolbar_icons/single/themewerk_main_36x36.png`
 - `assets/toolbar_icons/single/themewerk_main_45x45.png`
+- `assets/toolbar_icons/single/themewerk_main_48x48.png`
 - `assets/toolbar_icons/single/themewerk_main_60x60.png`
+- `assets/toolbar_icons/single/themewerk_main_64x64.png`
 - `assets/toolbar_icons/masters/themewerk_main.png`
 
 Compatibility alias (same as 90x30 strip):
@@ -67,6 +71,8 @@ To use it in REAPER:
 2. Right-click your toolbar -> `Customize toolbar...`
 3. Right-click the THEMEwerk action -> `Set button icon...`
 4. Choose `themewerk_main_90x30.png` (or one of the other THEMEwerk strips).
+
+The current toolbar icon family is tuned for clearer 30x30 readability with a stronger central THEMEwerk motif.
 
 ## Support
 

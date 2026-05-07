@@ -1,5 +1,10 @@
 # Changelog
 
+## [Unreleased]
+
+### Changed
+- Updated THEMEwerk toolbar icon family with approved polished assets for improved 30x30 readability.
+
 ## [0.1.6] - 2026-05-07
 
 ### Changed
