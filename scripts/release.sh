@@ -31,9 +31,11 @@ TIME_UTC="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
 perl -i -pe "s/^-- \\@version .*/-- \\@version ${VERSION}/" "$MAIN_FILE"
 
 # 2) Update index.xml vrs + prepend new <version> cloned from latest block
-REL_VERSION="$VERSION" REL_TIME="$TIME_UTC" perl -0777 -i -pe '
+REL_VERSION="$VERSION" REL_TIME="$TIME_UTC" REL_NOTE="$NOTE" perl -0777 -i -pe '
   my $v = $ENV{"REL_VERSION"};
   my $t = $ENV{"REL_TIME"};
+  my $n = $ENV{"REL_NOTE"};
+  $n =~ s/\]\]>/\] \]>/g;
 
   if (/<version\s+name="$v"\b/) {
     die "index.xml already contains version $v\\n";
@@ -45,6 +47,11 @@ REL_VERSION="$VERSION" REL_TIME="$TIME_UTC" perl -0777 -i -pe '
     my $block = $&;
     $block =~ s/name="[^"]+"/name="$v"/;
     $block =~ s/time="[^"]+"/time="$t"/;
+    if ($block =~ /<changelog>/s) {
+      $block =~ s/<changelog><!\[CDATA\[.*?\]\]><\/changelog>/<changelog><![CDATA[- $n]]><\/changelog>/s;
+    } else {
+      $block =~ s/(<version\b[^>]*>\s*)/$1        <changelog><![CDATA[- $n]]><\/changelog>\n/s;
+    }
     s/(<\/metadata>\s*)/$1\n$block/s;
   } else {
     die "Could not find a <version> block to clone in index.xml\\n";
