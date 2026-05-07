@@ -63,11 +63,10 @@ Compatibility alias (same as 90x30 strip):
 
 To use it in REAPER:
 
-1. Open `Options -> Show REAPER resource path in explorer/finder...`
-2. Copy at least one strip icon into `Data/toolbar_icons/` (recommended: `themewerk_main_90x30.png`)
-3. Right-click your toolbar -> `Customize toolbar...`
-4. Right-click the THEMEwerk action -> `Set button icon...`
-5. Choose the copied `themewerk_main_*.png` strip file
+1. Run the action `THEMEwerk: Install Toolbar Icons` (installed via ReaPack).
+2. Right-click your toolbar -> `Customize toolbar...`
+3. Right-click the THEMEwerk action -> `Set button icon...`
+4. Choose `themewerk_main_90x30.png` (or one of the other THEMEwerk strips).
 
 ## Support
 

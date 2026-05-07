@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.1.5] - 2026-05-07
+
+### Changed
+- Add install/uninstall toolbar icon actions and versioned popup titles
+
 ## [0.1.4] - 2026-05-07
 
 ### Changed
