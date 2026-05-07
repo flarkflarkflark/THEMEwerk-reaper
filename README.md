@@ -1,5 +1,5 @@
 <h1>
-  <img src="assets/toolbar_icons/single/themewerk_main_60x60.png" alt="THEMEwerk logo" width="44" valign="middle">
+  <img src="assets/toolbar_icons/single/themewerk_main_60x60.png" alt="THEMEwerk logo" width="128" valign="middle">
   THEMEwerk
 </h1>
 
