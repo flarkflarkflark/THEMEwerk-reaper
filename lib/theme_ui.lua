@@ -515,7 +515,7 @@ function M.run()
   local x, y, w, h, docked = state.get_window_geometry()
   w, h = math.max(MIN_WIN_W, w), math.max(MIN_WIN_H, h)
   if x < 0 or y < 0 then x, y = -1, -1 end
-  gfx.init("THEMEwerk", w, h, docked or 0, x, y)
+  gfx.init(app_title, w, h, docked or 0, x, y)
   update_fonts()
   local last_geom_sync_time = 0
   

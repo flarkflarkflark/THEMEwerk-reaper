@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.1.4] - 2026-05-07
+
+### Changed
+- Window title now uses auto-detected app version
+
 ## [0.1.3] - 2026-05-07
 
 ### Fixed
