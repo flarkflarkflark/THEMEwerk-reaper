@@ -1,5 +1,5 @@
 <h1>
-  THEMEwerk
+  <span style="color: #20c141;">THEME</span>werk
   <img src="assets/toolbar_icons/masters/themewerk_main.png" alt="THEMEwerk logo" width="64" style="vertical-align: middle; margin-left: 12px;">
 </h1>
 
