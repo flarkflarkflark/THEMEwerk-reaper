@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2] - 2026-05-07
+
+### Added
+- Toolbar icon pack for THEMEwerk in multiple sizes.
+- ReaPack packaging entries for toolbar icon assets.
+- README instructions for assigning THEMEwerk toolbar icons in REAPER.
+
 ## [0.1.0-alpha] - 2026-03-16
 
 ### Added

@@ -42,6 +42,30 @@ THEMEwerk is a live local theme browser for REAPER. Click a theme, see it instan
 - **Mouse wheel**: Scroll list.
 - **+ / - / 0**: UI scale up / down / reset.
 
+## Toolbar Icon (THEMEwerk)
+
+The repo includes a custom toolbar icon pack in multiple sizes:
+
+- `assets/toolbar_icons/strips_90x30/themewerk_main_90x30.png`
+- `assets/toolbar_icons/strips_135x45/themewerk_main_135x45.png`
+- `assets/toolbar_icons/strips_180x60/themewerk_main_180x60.png`
+- `assets/toolbar_icons/single/themewerk_main_30x30.png`
+- `assets/toolbar_icons/single/themewerk_main_45x45.png`
+- `assets/toolbar_icons/single/themewerk_main_60x60.png`
+- `assets/toolbar_icons/masters/themewerk_main.png`
+
+Compatibility alias (same as 90x30 strip):
+
+- `assets/toolbar_icons/THEMEwerk_toolbar.png`
+
+To use it in REAPER:
+
+1. Open `Options -> Show REAPER resource path in explorer/finder...`
+2. Copy at least one strip icon into `Data/toolbar_icons/` (recommended: `themewerk_main_90x30.png`)
+3. Right-click your toolbar -> `Customize toolbar...`
+4. Right-click the THEMEwerk action -> `Set button icon...`
+5. Choose the copied `themewerk_main_*.png` strip file
+
 ## License
 
 MIT License. See [LICENSE](LICENSE) for details.

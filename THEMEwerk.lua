@@ -7,6 +7,12 @@
 --   Turns theme browsing into a live workflow.
 -- @provides
 --   lib/*.lua
+--   assets/toolbar_icons/THEMEwerk_toolbar.png
+--   assets/toolbar_icons/masters/themewerk_main.png
+--   assets/toolbar_icons/single/*.png
+--   assets/toolbar_icons/strips_90x30/*.png
+--   assets/toolbar_icons/strips_135x45/*.png
+--   assets/toolbar_icons/strips_180x60/*.png
 
 -- Set up paths for required modules
 local info = debug.getinfo(1,'S')
