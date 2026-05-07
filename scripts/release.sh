@@ -41,7 +41,7 @@ REL_VERSION="$VERSION" REL_TIME="$TIME_UTC" REL_NOTE="$NOTE" perl -0777 -i -pe '
     die "index.xml already contains version $v\\n";
   }
 
-  s/(<reapack\b[^>]*\bvrs=")([^"]+)(")/$1.$v.$3/e;
+  s/(<reapack\b[^>]*\bvrs=")([^"]+)(")/$1$v$3/e;
 
   if (/<version\s+name="[^"]+"[^>]*>.*?<\/version>\s*/s) {
     my $block = $&;
