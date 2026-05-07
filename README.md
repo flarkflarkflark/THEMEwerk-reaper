@@ -1,10 +1,11 @@
-﻿# THEMEwerk
+<h1>
+  <img src="THEMEwerk.png" alt="THEMEwerk logo" width="44" valign="middle">
+  THEMEwerk
+</h1>
 
 THEMEwerk is a live local theme browser for REAPER. Click a theme, see it instantly, and browse your ColorThemes folder without the usual menu diving.
 
 <p align="center">
-  <img src="THEMEwerk.png" alt="THEMEwerk logo" width="180"><br>
-  <em>THEMEwerk identity mark.</em><br><br>
   <img src="docs/Screenshot.png" alt="THEMEwerk screenshot" width="50%"><br>
   <em>Current GFX UI with live-apply theme list.</em>
 </p>
