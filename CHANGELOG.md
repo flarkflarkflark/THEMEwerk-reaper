@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.1.7 - Toolbar Icon Refresh
+
+- Refreshed the THEMEwerk toolbar icon family with the approved big-T/theme-tile design.
+- Improved small-size readability, especially at 30x30 REAPER toolbar size.
+- Added/updated toolbar icon sizes and strips used by ReaPack/REAPER.
+- No runtime behavior changes.
+
 ## [Unreleased]
 
 ### Changed

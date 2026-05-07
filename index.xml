@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <index version="1" name="THEMEwerk-reaper">
   <category name="Theme Browser">
-    <reapack name="THEMEwerk.lua" type="script" vrs="0.1.6">
+    <reapack name="THEMEwerk.lua" type="script" vrs="0.1.7">
       <metadata>
         <description><![CDATA[THEMEwerk: A local theme browser]]></description>
         <link rel="website">https://github.com/flarkflarkflark/THEMEwerk-reaper</link>
@@ -9,7 +9,27 @@
       
 
 
-<version name="0.1.6" author="flarkAUDIO" time="2026-05-07T10:52:05Z">
+<version name="0.1.7" author="flarkAUDIO" time="2026-05-07T12:30:00Z">
+        <changelog><![CDATA[- Toolbar icon refresh: approved big-T/theme-tile family with improved 30x30 readability.]]></changelog>
+        <source main="main">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/THEMEwerk.lua</source>
+        <source file="assets/toolbar_icons/THEMEwerk_toolbar.png">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/assets/toolbar_icons/THEMEwerk_toolbar.png</source>
+        <source file="assets/toolbar_icons/masters/themewerk_main.png">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/assets/toolbar_icons/masters/themewerk_main.png</source>
+        <source file="assets/toolbar_icons/single/themewerk_main_24x24.png">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/assets/toolbar_icons/single/themewerk_main_24x24.png</source>
+        <source file="assets/toolbar_icons/single/themewerk_main_30x30.png">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/assets/toolbar_icons/single/themewerk_main_30x30.png</source>
+        <source file="assets/toolbar_icons/single/themewerk_main_36x36.png">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/assets/toolbar_icons/single/themewerk_main_36x36.png</source>
+        <source file="assets/toolbar_icons/single/themewerk_main_45x45.png">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/assets/toolbar_icons/single/themewerk_main_45x45.png</source>
+        <source file="assets/toolbar_icons/single/themewerk_main_48x48.png">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/assets/toolbar_icons/single/themewerk_main_48x48.png</source>
+        <source file="assets/toolbar_icons/single/themewerk_main_60x60.png">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/assets/toolbar_icons/single/themewerk_main_60x60.png</source>
+        <source file="assets/toolbar_icons/single/themewerk_main_64x64.png">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/assets/toolbar_icons/single/themewerk_main_64x64.png</source>
+        <source file="assets/toolbar_icons/strips_90x30/themewerk_main_90x30.png">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/assets/toolbar_icons/strips_90x30/themewerk_main_90x30.png</source>
+        <source file="assets/toolbar_icons/strips_135x45/themewerk_main_135x45.png">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/assets/toolbar_icons/strips_135x45/themewerk_main_135x45.png</source>
+        <source file="assets/toolbar_icons/strips_180x60/themewerk_main_180x60.png">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/assets/toolbar_icons/strips_180x60/themewerk_main_180x60.png</source>
+        <source file="lib/theme_actions.lua">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/lib/theme_actions.lua</source>
+        <source file="lib/theme_data.lua">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/lib/theme_data.lua</source>
+        <source file="lib/theme_state.lua">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/lib/theme_state.lua</source>
+        <source file="lib/theme_ui.lua">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/lib/theme_ui.lua</source>
+      </version>
+      <version name="0.1.6" author="flarkAUDIO" time="2026-05-07T10:52:05Z">
         <changelog><![CDATA[- Fix ReaPack toolbar installer ownership conflicts.]]></changelog>
         <source main="main">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/THEMEwerk.lua</source>
         <source file="assets/toolbar_icons/THEMEwerk_toolbar.png">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/assets/toolbar_icons/THEMEwerk_toolbar.png</source>
@@ -120,22 +140,30 @@
         <source file="lib/theme_ui.lua">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/lib/theme_ui.lua</source>
       </version>
     </reapack>
-    <reapack name="THEMEwerk_Install_Toolbar_Icons.lua" type="script" vrs="0.1.6">
+    <reapack name="THEMEwerk_Install_Toolbar_Icons.lua" type="script" vrs="0.1.7">
       <metadata>
         <description><![CDATA[THEMEwerk: Install Toolbar Icons]]></description>
         <link rel="website">https://github.com/flarkflarkflark/THEMEwerk-reaper</link>
       </metadata>
+      <version name="0.1.7" author="flarkAUDIO" time="2026-05-07T12:30:00Z">
+        <changelog><![CDATA[- Align installer package with toolbar icon refresh release.]]></changelog>
+        <source main="main">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/THEMEwerk_Install_Toolbar_Icons.lua</source>
+      </version>
       <version name="0.1.6" author="flarkAUDIO" time="2026-05-07T13:05:00Z">
         <changelog><![CDATA[- Install helper package aligned with conflict-free ownership.]]></changelog>
         <source main="main">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/THEMEwerk_Install_Toolbar_Icons.lua</source>
       </version>
     </reapack>
 
-    <reapack name="THEMEwerk_Uninstall_Toolbar_Icons.lua" type="script" vrs="0.1.6">
+    <reapack name="THEMEwerk_Uninstall_Toolbar_Icons.lua" type="script" vrs="0.1.7">
       <metadata>
         <description><![CDATA[THEMEwerk: Uninstall Toolbar Icons]]></description>
         <link rel="website">https://github.com/flarkflarkflark/THEMEwerk-reaper</link>
       </metadata>
+      <version name="0.1.7" author="flarkAUDIO" time="2026-05-07T12:30:00Z">
+        <changelog><![CDATA[- Align uninstaller package with toolbar icon refresh release.]]></changelog>
+        <source main="main">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/THEMEwerk_Uninstall_Toolbar_Icons.lua</source>
+      </version>
       <version name="0.1.6" author="flarkAUDIO" time="2026-05-07T13:05:00Z">
         <changelog><![CDATA[- Uninstall helper package aligned with conflict-free ownership.]]></changelog>
         <source main="main">https://raw.githubusercontent.com/flarkflarkflark/THEMEwerk-reaper/master/THEMEwerk_Uninstall_Toolbar_Icons.lua</source>

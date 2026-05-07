@@ -1,5 +1,5 @@
 -- @description THEMEwerk: Uninstall Toolbar Icons
--- @version 0.1.5
+-- @version 0.1.7
 -- @author flarkAUDIO
 -- @category Theme Browser
 -- @about
