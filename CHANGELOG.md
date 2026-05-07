@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.1.6] - 2026-05-07
+
+### Changed
+- Fix ReaPack file ownership conflict for toolbar icon installer
+
 ## [0.1.5] - 2026-05-07
 
 ### Changed
