@@ -13,6 +13,7 @@ THEMEwerk is a live local theme browser for REAPER. Click a theme, see it instan
 ## Features
 
 - **Instant Apply**: Themes are applied immediately as you click or navigate via keyboard.
+- **Launch Focus**: Opens with the active theme selected and centered in the list.
 - **Directory Sync**: Automatically detects new or removed themes while open.
 - **Status Tracking**:
   - **START**: The theme active when you launched THEMEwerk.
@@ -55,8 +56,7 @@ ReaPack installs the script, helper actions, library files, and toolbar icon ass
 
 ## Toolbar Icon (THEMEwerk)
 
-Current release: `v0.1.7`  
-The `v0.1.7` release includes the refreshed big-T/theme-tile toolbar icon family.
+Current release: `v0.1.8`
 
 The repo includes a custom toolbar icon pack in multiple sizes:
 
@@ -84,6 +84,10 @@ To use it in REAPER:
 4. Choose `themewerk_main_90x30.png` (or one of the other THEMEwerk strips).
 
 The current toolbar icon family is tuned for clearer 30x30 readability with a stronger central THEMEwerk motif.
+
+## Version
+
+Latest: **v0.1.8** — see [CHANGELOG.md](CHANGELOG.md) for full history.
 
 ## Support
 
