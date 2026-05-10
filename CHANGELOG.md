@@ -1,5 +1,14 @@
 # Changelog
 
+## THEMEwerk 0.1.8 - Active Theme Launch Focus
+
+### Changed
+- THEMEwerk now selects the active/start theme automatically when opened.
+- The theme list now scrolls immediately to keep the active theme centered and visible on launch.
+
+### Fixed
+- Improved launch focus when the current REAPER theme is far down the local theme list.
+
 ## v0.1.7 - Toolbar Icon Refresh
 
 - Refreshed the THEMEwerk toolbar icon family with the approved big-T/theme-tile design.
@@ -8,9 +17,6 @@
 - No runtime behavior changes.
 
 ## [Unreleased]
-
-### Changed
-- Updated THEMEwerk toolbar icon family with approved polished assets for improved 30x30 readability.
 
 ## [0.1.6] - 2026-05-07
 
