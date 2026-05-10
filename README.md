@@ -13,7 +13,9 @@ THEMEwerk is a live local theme browser for REAPER. Click a theme, see it instan
 ## Features
 
 - **Instant Apply**: Themes are applied immediately as you click or navigate via keyboard.
-- **Launch Focus**: Opens with the active theme selected and centered in the list.
+- **Launch Focus**:
+  - Selects the active/start theme automatically when opened.
+  - Scrolls the list immediately to keep the active theme centered and visible on launch.
 - **Directory Sync**: Automatically detects new or removed themes while open.
 - **Status Tracking**:
   - **START**: The theme active when you launched THEMEwerk.
