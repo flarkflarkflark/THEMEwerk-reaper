@@ -44,6 +44,7 @@ local MIN_WIN_H = 250
 -- Current session state
 local win_w, win_h = 400, 600
 local scroll_pos = 0
+local scroll_center_pending = false
 local selected_idx = 1
 local search_text = ''
 local filtered_themes = {}
@@ -246,7 +247,14 @@ function M.draw()
   local sb_w = scaled(6)
   local list_w = gfx.w - pad * 2 - sb_w - margin
   local max_items = math.floor(list_h / line_h)
-  
+
+  if scroll_center_pending and max_items > 0 and selected_idx > 0 then
+    scroll_center_pending = false
+    scroll_pos = math.max(0, selected_idx - math.floor(max_items / 2) - 1)
+    local max_scroll = math.max(0, #filtered_themes - max_items)
+    if scroll_pos > max_scroll then scroll_pos = max_scroll end
+  end
+
   -- 3. Draw Theme List
   for i = 1, max_items do
     local idx = i + scroll_pos
@@ -510,6 +518,10 @@ end
 
 function M.run()
   state.load_state()
+  local s0 = state.get_state()
+  if s0.start_theme_obj and s0.start_theme_obj.full_path then
+    selected_theme_path = s0.start_theme_obj.full_path
+  end
   M.filter_themes()
   
   local x, y, w, h, docked = state.get_window_geometry()
@@ -517,6 +529,7 @@ function M.run()
   if x < 0 or y < 0 then x, y = -1, -1 end
   gfx.init(app_title, w, h, docked or 0, x, y)
   update_fonts()
+  scroll_center_pending = true
   local last_geom_sync_time = 0
   
   local function loop()
